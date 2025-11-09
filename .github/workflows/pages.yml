@@ -26,15 +26,15 @@ jobs:
         run: npm ci
 
       - name: Build Angular
-        run: npx ng build --configuration=production --base-href "/angular-task-manager/"
+        run: npx ng build --configuration=production --base-href "/Angular-Task-Manager/"
 
       - name: Resolve build dir
         id: out
         run: |
-          if [ -d dist/angular-task-manager/browser ]; then
-            echo "DIR=dist/angular-task-manager/browser" >> $GITHUB_OUTPUT
+          if [ -d dist/Angular-Task-Manager/browser ]; then
+            echo "DIR=dist/Angular-Task-Manager/browser" >> $GITHUB_OUTPUT
           else
-            echo "DIR=dist/angular-task-manager" >> $GITHUB_OUTPUT
+            echo "DIR=dist/Angular-Task-Manager" >> $GITHUB_OUTPUT
           fi
 
       - name: SPA 404
