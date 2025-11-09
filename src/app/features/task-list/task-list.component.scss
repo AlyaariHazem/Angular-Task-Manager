@@ -1,0 +1,171 @@
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  padding: 1.25rem 1.5rem;
+  color: var(--text);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  select {
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: var(--accent);
+    }
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 0.9rem;
+
+  th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--muted);
+    padding: 0.75rem 0.5rem;
+    border-bottom: 2px solid var(--border);
+    background: rgba(148, 163, 184, 0.05);
+  }
+
+  td {
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:hover {
+    background: rgba(148, 163, 184, 0.05);
+    transition: 0.15s;
+  }
+}
+
+.empty {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* --- Status Badges --- */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.Pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.InProgress {
+  background: #fde68a;
+  color: #b45309;
+}
+
+.Completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* --- Buttons --- */
+button {
+  padding: 0.35rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 0.3rem;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+button.status {
+  background: var(--accent);
+  color: #fff;
+}
+
+button.edit {
+  background: #2563eb;
+  color: #fff;
+
+  &:hover {
+    background: #1d4ed8;
+  }
+}
+
+button.delete {
+  background: #ef4444;
+  color: #fff;
+
+  &:hover {
+    background: #dc2626;
+  }
+}
+
+button.save {
+  background: #22c55e;
+  color: #fff;
+
+  &:hover {
+    background: #16a34a;
+  }
+}
+
+button.cancel {
+  background: #9ca3af;
+  color: #111827;
+}
+
+/* --- Editable fields --- */
+td input,
+td select {
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.85rem;
+  outline: none;
+
+  &:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+  }
+}

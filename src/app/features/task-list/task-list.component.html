@@ -1,0 +1,82 @@
+<div class="card">
+  <div class="header">
+    <h2>Task List</h2>
+
+    <select [ngModel]="filter" (ngModelChange)="onFilterChange($event)">
+      <option value="All">All</option>
+      <option [value]="TaskStatus.Pending">Pending</option>
+      <option [value]="TaskStatus.InProgress">In Progress</option>
+      <option [value]="TaskStatus.Completed">Completed</option>
+    </select>
+  </div>
+
+  @if (tasks.length) {
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th style="width: 260px">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (task of tasks; track task) {
+          <tr>
+            
+            <td>{{ task.id }}</td>
+
+            <td>
+              @if (editingTaskId === task.id) {
+                <input
+                  [(ngModel)]="editModel.title"
+                  placeholder="Title"
+                />
+              } @else {
+                {{ task.title }}
+              }
+            </td>
+
+            <td>
+              @if (editingTaskId === task.id) {
+                <input
+                  [(ngModel)]="editModel.description"
+                  placeholder="Description"
+                />
+              } @else {
+                {{ task.description }}
+              }
+            </td>
+
+            <td>
+              @if (editingTaskId === task.id) {
+                <select [(ngModel)]="editModel.status">
+                  <option [ngValue]="TaskStatus.Pending">Pending</option>
+                  <option [ngValue]="TaskStatus.InProgress">In Progress</option>
+                  <option [ngValue]="TaskStatus.Completed">Completed</option>
+                </select>
+              } @else {
+                <span class="badge" [ngClass]="task.status">
+                  {{ task.status }}
+                </span>
+              }
+            </td>
+
+             <td>
+        @if (editingTaskId === task.id) {
+          <button class="save" (click)="saveEdit(task)">Save</button>
+          <button class="cancel" (click)="cancelEdit()">Cancel</button>
+        } @else {
+          <button class="edit" (click)="startEdit(task)">Edit</button>
+          <button class="delete" (click)="delete(task)">Delete</button>
+        }
+      </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else {
+    <p class="empty">No tasks found. Use "Add Task" to create one.</p>
+  }
+</div>
